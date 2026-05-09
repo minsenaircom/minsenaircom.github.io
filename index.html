@@ -15,100 +15,30 @@
 /* ── RESET & BASE ── */
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',sans-serif;color:#2c3e50;line-height:1.7;
-  background:#fafcfd;
+  background-color:#fafcfd;
   background-image:
-    /* soft ambient gradient */
-    radial-gradient(ellipse at 15% 10%, rgba(26,82,118,0.04) 0%, transparent 50%),
-    radial-gradient(ellipse at 85% 20%, rgba(52,152,219,0.04) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(46,204,113,0.03) 0%, transparent 50%),
-    radial-gradient(ellipse at 20% 70%, rgba(240,192,64,0.02) 0%, transparent 40%);
-  background-attachment:fixed;
+    /* Pattern 1: subtle dot grid */
+    radial-gradient(circle at 1px 1px, rgba(44,62,80,0.04) 1px, transparent 0),
+    /* Pattern 2: diagonal stripes (very faint) */
+    repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(44,62,80,0.015) 20px, rgba(44,62,80,0.015) 21px);
+  background-size: 24px 24px, 30px 30px;
   min-height:100vh
 }
 .container{max-width:1200px;margin:0 auto;padding:0 24px}
 
-/* ── DECORATIVE BG ELEMENTS (ambient nature shapes) ── */
-body::before,body::after{content:'';position:fixed;pointer-events:none;z-index:0}
-/* floating leaf-like shapes */
-body::before{
-  top:-10%;right:-5%;width:300px;height:300px;
-  background:radial-gradient(circle at 30% 40%, rgba(46,204,113,0.06) 0%, transparent 70%);
-  border-radius:50%;
-  animation:floatA 20s ease-in-out infinite
-}
-body::after{
-  bottom:10%;left:-8%;width:400px;height:400px;
-  background:radial-gradient(circle at 70% 60%, rgba(52,152,219,0.05) 0%, transparent 70%);
-  border-radius:50%;
-  animation:floatB 25s ease-in-out infinite
-}
-@keyframes floatA{
-  0%,100%{transform:translate(0,0) scale(1)}
-  33%{transform:translate(30px,-40px) scale(1.1)}
-  66%{transform:translate(-20px,20px) scale(0.95)}
-}
-@keyframes floatB{
-  0%,100%{transform:translate(0,0) scale(1)}
-  33%{transform:translate(-30px,30px) scale(1.08)}
-  66%{transform:translate(20px,-20px) scale(0.92)}
-}
-
-/* ── DECORATIVE LEAF SVG OVERLAYS ── */
-.bg-leaf{position:absolute;pointer-events:none;z-index:0;opacity:0.06}
-.bg-leaf-1{top:20%;right:5%;width:120px;height:120px;
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%2327ae60' d='M50 5C25 30 10 55 10 75c0 15 10 20 20 20 8 0 20-8 20-20 0-12 5-25 20-35C65 25 55 10 50 5z'/%3E%3C/svg%3E") no-repeat center;
-  animation:driftLeaf 30s ease-in-out infinite;
-  transform:rotate(30deg)
-}
-.bg-leaf-2{bottom:25%;left:3%;width:80px;height:80px;
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%232980b9' d='M50 5C25 30 10 55 10 75c0 15 10 20 20 20 8 0 20-8 20-20 0-12 5-25 20-35C65 25 55 10 50 5z'/%3E%3C/svg%3E") no-repeat center;
-  animation:driftLeaf 35s ease-in-out infinite 5s;
-  transform:rotate(-20deg)
-}
-.bg-leaf-3{top:60%;right:8%;width:60px;height:60px;
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23e67e22' d='M50 5C25 30 10 55 10 75c0 15 10 20 20 20 8 0 20-8 20-20 0-12 5-25 20-35C65 25 55 10 50 5z'/%3E%3C/svg%3E") no-repeat center;
-  animation:driftLeaf 40s ease-in-out infinite 10s;
-  transform:rotate(60deg)
-}
-@keyframes driftLeaf{
-  0%,100%{transform:translate(0,0) rotate(var(--r,30deg));opacity:0.06}
-  25%{transform:translate(20px,-15px) rotate(calc(var(--r,30deg)+15deg));opacity:0.08}
-  50%{transform:translate(-10px,20px) rotate(calc(var(--r,30deg)-10deg));opacity:0.05}
-  75%{transform:translate(15px,5px) rotate(calc(var(--r,30deg)+20deg));opacity:0.07}
-}
-.bg-leaf-1{--r:30deg}.bg-leaf-2{--r:-20deg}.bg-leaf-3{--r:60deg}
-
-/* ── FRESH AIR BUBBLE DECORATION ── */
-.bg-bubble{position:absolute;border-radius:50%;pointer-events:none;z-index:0;
-  background:radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15), transparent 70%);
-  animation:riseBubble 20s ease-in-out infinite
-}
-.bg-bubble-1{width:200px;height:200px;top:40%;left:10%;opacity:0.04}
-.bg-bubble-2{width:120px;height:120px;top:70%;right:15%;opacity:0.03;animation-delay:7s}
-.bg-bubble-3{width:80px;height:80px;top:15%;left:45%;opacity:0.03;animation-delay:14s}
-@keyframes riseBubble{
-  0%,100%{transform:translate(0,0) scale(1);opacity:0.04}
-  50%{transform:translate(10px,-20px) scale(1.1);opacity:0.06}
-}
-
 /* ── HEADER ── */
-.header{background:linear-gradient(135deg,#0f2b4a 0%,#1a5276 50%,#1a6b5a 100%);color:#fff;padding:80px 20px 60px;text-align:center;position:relative;overflow:hidden}
-.header::before{content:'';position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse at 20% 50%, rgba(46,204,113,0.12) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 50%, rgba(52,152,219,0.08) 0%, transparent 50%);
-  pointer-events:none
+.header{background-color:#0f2b4a;color:#fff;padding:80px 20px 60px;text-align:center;position:relative;overflow:hidden;
+  background-image:
+    /* diamond pattern overlay */
+    linear-gradient(135deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.02) 50%, rgba(255,255,255,0.02) 75%, transparent 75%, transparent),
+    /* base gradient */
+    linear-gradient(135deg, #0f2b4a 0%, #1a5276 50%, #1a6b5a 100%);
+  background-size: 40px 40px, 100% 100%;
 }
 .header h1{font-size:2.5em;font-weight:800;margin-bottom:6px;letter-spacing:-0.5px;position:relative;z-index:1}
 .header h1 span{color:#f0c040}
 .header .tagline{font-size:1.15em;opacity:.92;margin-top:4px;position:relative;z-index:1}
 .header .badge{display:inline-block;background:rgba(255,255,255,.12);padding:8px 28px;border-radius:25px;font-size:.82em;margin-top:14px;position:relative;z-index:1}
-
-/* Header ambient scent lines */
-.header::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;
-  background:repeating-linear-gradient(90deg, transparent 0px, rgba(255,255,255,0.02) 2px, transparent 4px);
-  pointer-events:none;mask-image:radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0.3) 0%, transparent 70%)
-}
 
 /* ── NAV ── */
 nav{background:rgba(255,255,255,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:0;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,.06)}
@@ -121,7 +51,13 @@ nav .links a:hover{color:#1a5276}
 
 /* ── SECTIONS ── */
 .section{padding:70px 0;position:relative}
-.section-alt{background:linear-gradient(180deg, #f7faff 0%, #edf5f9 50%, #f7faff 100%)}
+.section-alt{background-color:#f7faff;
+  background-image:
+    /* wavy horizontal pattern */
+    repeating-linear-gradient(90deg, transparent, transparent 30px, rgba(26,82,118,0.02) 30px, rgba(26,82,118,0.02) 31px),
+    repeating-linear-gradient(0deg, transparent, transparent 30px, rgba(26,82,118,0.02) 30px, rgba(26,82,118,0.02) 31px);
+  background-size: 31px 31px;
+}
 .section h2{font-size:1.9em;text-align:center;margin-bottom:10px;color:#0f2b4a;position:relative;z-index:1}
 .section .sub{text-align:center;color:#7f8c8d;max-width:640px;margin:0 auto 40px;font-size:1em;position:relative;z-index:1}
 
@@ -183,7 +119,11 @@ nav .links a:hover{color:#1a5276}
 .contact-form button:hover{background:linear-gradient(135deg,#0f2b4a,#1a5276);transform:translateY(-1px)}
 
 /* ── FOOTER ── */
-footer{background:linear-gradient(135deg,#0a1e30,#0f2b4a);color:rgba(255,255,255,.8);padding:30px 0;text-align:center;font-size:.82em}
+footer{background-color:#0a1e30;color:rgba(255,255,255,.8);padding:30px 0;text-align:center;font-size:.82em;
+  background-image:
+    repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.008) 20px, rgba(255,255,255,0.008) 21px);
+  background-size: 30px 30px;
+}
 footer a{color:rgba(255,255,255,.8)}
 
 /* ── WHATSAPP FLOAT ── */
@@ -201,14 +141,6 @@ footer a{color:rgba(255,255,255,.8)}
 </style>
 </head>
 <body>
-
-<!-- Ambient decorative elements -->
-<div class="bg-leaf bg-leaf-1"></div>
-<div class="bg-leaf bg-leaf-2"></div>
-<div class="bg-leaf bg-leaf-3"></div>
-<div class="bg-bubble bg-bubble-1"></div>
-<div class="bg-bubble bg-bubble-2"></div>
-<div class="bg-bubble bg-bubble-3"></div>
 
 <!-- HEADER -->
 <header class="header">
