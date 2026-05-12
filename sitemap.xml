@@ -3,14 +3,14 @@
   <url>
     <loc>https://minsenair.com/</loc>
     <lastmod>2026-05-12</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://minsenair.com/product_catalog.html</loc>
     <lastmod>2026-05-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://minsenair.com/quotation_template.html</loc>

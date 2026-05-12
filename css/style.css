@@ -1,5 +1,5 @@
-
 *{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',sans-serif;color:#2c3e50;line-height:1.7;background:#f5f8fb;background-image:radial-gradient(circle at 1px 1px,rgba(44,62,80,0.04) 1px,transparent 0);background-size:24px 24px}
 .container{max-width:1200px;margin:0 auto;padding:0 24px}
 
@@ -41,16 +41,25 @@ nav .links a:hover{color:#1a5276}
 .prod-cat-btns button{background:rgba(255,255,255,.8);border:1px solid #d0d7e2;padding:8px 20px;border-radius:20px;font-size:.85em;cursor:pointer;color:#555;transition:all .2s}
 .prod-cat-btns button:hover,.prod-cat-btns button.active{background:#1a5276;color:#fff;border-color:#1a5276}
 
-.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:24px}
-.prod-card{background:rgba(255,255,255,.92);border-radius:12px;overflow:hidden;border:1px solid #e8edf4;transition:transform .2s,box-shadow .2s}
+/* ── PRODUCT GRID ── */
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:24px}
+.prod-card{background:rgba(255,255,255,.92);border-radius:12px;overflow:hidden;border:1px solid #e8edf4;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column}
 .prod-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.08)}
-.prod-card .img-wrap{background:linear-gradient(135deg,#f8fafc,#eef2f7);aspect-ratio:1;display:flex;align-items:center;justify-content:center;padding:24px}
-.prod-card .img-wrap img{max-width:80%;max-height:80%;object-fit:contain;transition:transform .4s}
+.prod-card .img-wrap{background:linear-gradient(135deg,#f8fafc,#eef2f7);aspect-ratio:1;display:flex;align-items:center;justify-content:center;padding:20px}
+.prod-card .img-wrap img{max-width:75%;max-height:75%;object-fit:contain;transition:transform .4s}
 .prod-card:hover .img-wrap img{transform:scale(1.05)}
-.prod-card .info{padding:14px 16px 18px}
+.prod-card .info{padding:12px 16px 8px;flex:1}
 .prod-card .info h4{font-size:.95em;margin-bottom:3px;color:#1a3a5c}
-.prod-card .info p{font-size:.78em;color:#7f8c9b}
-.prod-card .info .tag{display:inline-block;background:#e8f0fe;color:#1a5276;border-radius:10px;padding:2px 10px;font-size:.72em;margin-top:6px}
+.prod-card .info p{font-size:.78em;color:#7f8c9b;margin-bottom:4px}
+.prod-card .info .tag{display:inline-block;background:#e8f0fe;color:#1a5276;border-radius:10px;padding:2px 10px;font-size:.72em;margin:4px 4px 0 0}
+
+/* Product rating / spec badges */
+.prod-card-specs{display:flex;flex-wrap:wrap;gap:4px;padding:0 16px 8px}
+.prod-card-specs .spec-badge{background:#f0f5fa;border:1px solid #e0e6ef;border-radius:4px;padding:2px 7px;font-size:.68em;color:#555;white-space:nowrap}
+
+/* ── QUOTE BUTTON ── */
+.quote-btn{display:block;margin:8px 16px 14px;padding:9px 0;background:linear-gradient(135deg,#1a5276,#2980b9);color:#fff;text-align:center;border:none;border-radius:6px;font-size:.82em;font-weight:600;cursor:pointer;text-decoration:none;transition:all .2s}
+.quote-btn:hover{background:linear-gradient(135deg,#0f2b4a,#1a5276);transform:translateY(-1px)}
 
 /* ── FEATURES GRID ── */
 .grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
@@ -60,6 +69,16 @@ nav .links a:hover{color:#1a5276}
 .card h3{font-size:1.05em;margin-bottom:6px;color:#1a3a5c}
 .card p{font-size:.82em;color:#7f8c9b}
 
+/* ── FAQ ── */
+.faq-item{border-bottom:1px solid #e8edf4;cursor:pointer}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:18px 16px;font-weight:600;font-size:.93em;color:#1a3a5c;transition:color .2s;user-select:none}
+.faq-q:hover{color:#1a5276}
+.faq-q .faq-icon{font-size:1.1em;color:#95a5a6;transition:transform .3s}
+.faq-item.open .faq-q .faq-icon{transform:rotate(180deg)}
+.faq-a{display:none;padding:0 16px 20px;color:#555;font-size:.85em;line-height:1.7}
+.faq-item.open .faq-a{display:block}
+
+/* ── OEM STEPS ── */
 .oem-steps{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
 .step{background:rgba(255,255,255,.85);border-radius:10px;padding:20px 14px;text-align:center;border:1px solid #e8edf4}
 .step .num{width:30px;height:30px;background:linear-gradient(135deg,#1a5276,#2980b9);color:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:.82em;margin-bottom:8px}
@@ -69,16 +88,27 @@ nav .links a:hover{color:#1a5276}
 .certs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:25px}
 .cert{background:rgba(255,255,255,.8);border:1px solid #e0e6ef;border-radius:6px;padding:6px 16px;font-size:.78em;font-weight:600;color:#1a5276}
 
+/* ── CONTACT ── */
 .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:36px;max-width:860px;margin:0 auto}
 .contact-info{background:rgba(255,255,255,.85);border-radius:12px;padding:30px;border:1px solid #e8edf4}
 .contact-info .item{margin-bottom:14px}
 .contact-info .item .label{font-size:.78em;color:#95a5a6;display:block}
 .contact-info .item .val{font-size:.92em;font-weight:500}
 .contact-info .item a{color:#1a5276;text-decoration:none}
-.contact-form input,.contact-form textarea,.contact-form select{width:100%;padding:12px 14px;margin-bottom:10px;border:1px solid #d0d7e2;border-radius:6px;font-size:.88em;font-family:inherit;transition:border .2s}
-.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{outline:0;border-color:#1a5276;box-shadow:0 0 0 3px rgba(26,82,118,.1)}
+.contact-form input,.contact-form textarea{width:100%;padding:12px 14px;margin-bottom:10px;border:1px solid #d0d7e2;border-radius:6px;font-size:.88em;font-family:inherit;transition:border .2s}
+.contact-form input:focus,.contact-form textarea:focus{outline:0;border-color:#1a5276;box-shadow:0 0 0 3px rgba(26,82,118,.1)}
 .contact-form button{background:linear-gradient(135deg,#1a5276,#2980b9);color:#fff;border:none;padding:13px 30px;border-radius:6px;font-size:.92em;font-weight:600;cursor:pointer;width:100%;transition:all .2s}
 .contact-form button:hover{background:linear-gradient(135deg,#0f2b4a,#1a5276)}
+.contact-form .form-note{text-align:center;color:#95a5a6;font-size:.75em;margin-top:6px}
+
+/* ── ABOUT EXTRA ── */
+.about-extras{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;margin-top:30px}
+
+/* ── TRUST BAR ── */
+.trust-bar{background:linear-gradient(135deg,#1a5276,#2980b9);color:#fff;padding:40px 0;text-align:center}
+.trust-bar h3{font-size:1.3em;margin-bottom:20px;opacity:.95}
+.trust-bar .trust-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px;max-width:800px;margin:0 auto}
+.trust-bar .trust-item{background:rgba(255,255,255,.1);padding:16px;border-radius:8px;font-size:.82em;backdrop-filter:blur(4px)}
 
 footer{background:#0a1e30;color:rgba(255,255,255,.8);padding:30px 0;text-align:center;font-size:.82em}
 footer a{color:rgba(255,255,255,.8)}
@@ -91,6 +121,7 @@ footer a{color:rgba(255,255,255,.8)}
 
 .prod-count{text-align:center;color:#95a5a6;font-size:.82em;margin:0 0 8px}
 
+/* ── RESPONSIVE ── */
 @media(max-width:768px){
 .header h1{font-size:1.8em}.header{padding:50px 20px}.section{padding:50px 0}h2{font-size:1.5em}
 .contact-wrap{grid-template-columns:1fr}.prod-grid{grid-template-columns:repeat(2,1fr)}
@@ -98,4 +129,3 @@ nav .links a{margin-left:12px;font-size:.82em}
 .prod-search{width:100%}
 }
 @media(max-width:480px){.prod-grid{grid-template-columns:1fr}}
-
