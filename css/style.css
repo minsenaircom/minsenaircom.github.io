@@ -116,6 +116,18 @@ footer a{color:rgba(255,255,255,.8)}
 .whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:999;background:#25D366;color:#fff;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 15px rgba(37,211,102,.4);text-decoration:none;transition:transform .2s}
 .whatsapp-float:hover{transform:scale(1.1)}
 
+.hero-cta{display:inline-block;padding:14px 36px;background:#f0c040;color:#0f2b4a;border-radius:30px;font-weight:700;font-size:1.1em;text-decoration:none;margin-top:20px;transition:all .3s}
+.hero-cta:hover{background:#ffd866;transform:translateY(-2px);box-shadow:0 6px 20px rgba(240,192,64,.3)}
+
+.prod-specs-table td{font-size:.85em}
+.prod-detail-header{margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid #e8edf4}
+.prod-detail-header h1{font-size:1.5em;color:#1a3a5c;margin-bottom:2px}
+.prod-detail-header .breadcrumb{font-size:.78em;color:#95a5a6}
+.prod-detail-header .breadcrumb a{color:#1a5276;text-decoration:none}
+.prod-detail-layout{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin:20px 0}
+@media(max-width:768px){.prod-detail-layout{grid-template-columns:1fr}}
+.prod-detail-desc{font-size:.92em;color:#555;line-height:1.8}
+
 .back-top{position:fixed;bottom:90px;right:24px;z-index:998;background:#1a5276;color:#fff;width:42px;height:42px;border-radius:50%;display:none;align-items:center;justify-content:center;font-size:20px;text-decoration:none;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.15);transition:all .2s}
 .back-top.show{display:flex}
 

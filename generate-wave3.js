@@ -325,6 +325,54 @@ function generateProductPage(prod) {
   const dir = path.join(BASE, 'products', prodSlug);
   fs.mkdirSync(dir, { recursive: true });
 
+  // Build category-specific spec values
+  const specsMap = {
+    'colin-pro':     { model:'Colin Pro', filter:'HEPA H13', cadr:'300 m³/h', coverage:'≤40 m²', noise:'≤35 dB', power:'45W', certs:'CE,RoHS,SASO', app:'Home/Bedroom' },
+    'fillo':         { model:'FILLO', filter:'HEPA H13', cadr:'200 m³/h', coverage:'≤25 m²', noise:'≤30 dB', power:'30W', certs:'CE,RoHS', app:'Desktop/Office' },
+    'halo':          { model:'HALO', filter:'HEPA + Carbon', cadr:'350 m³/h', coverage:'≤45 m²', noise:'≤38 dB', power:'55W', certs:'CE,RoHS', app:'Living Room' },
+    'jupiter':       { model:'Jupiter', filter:'HEPA H13', cadr:'600 m³/h', coverage:'≤80 m²', noise:'≤45 dB', power:'65W', certs:'CE,RoHS,SASO', app:'Large Room/Office' },
+    'jupiter-plus':  { model:'Jupiter Plus', filter:'Dual HEPA + Carbon', cadr:'700 m³/h', coverage:'≤100 m²', noise:'≤48 dB', power:'80W', certs:'CE,RoHS,SASO', app:'Large Room/Commercial' },
+    'kaka':          { model:'Kaka', filter:'HEPA', cadr:'50 m³/h', coverage:'≤10 m²', noise:'≤25 dB', power:'5W (USB)', certs:'CE,RoHS', app:'Desktop/Personal' },
+    'kaka-wood-grain': { model:'Kaka WG', filter:'HEPA', cadr:'50 m³/h', coverage:'≤10 m²', noise:'≤25 dB', power:'5W (USB)', certs:'CE,RoHS', app:'Desktop/Personal' },
+    'mage':          { model:'Mage', filter:'HEPA', cadr:'250 m³/h', coverage:'≤35 m²', noise:'≤32 dB', power:'40W', certs:'CE,RoHS', app:'Bedroom/Apartment' },
+    'mars':          { model:'Mars', filter:'HEPA', cadr:'400 m³/h', coverage:'≤55 m²', noise:'≤40 dB', power:'50W', certs:'CE,RoHS,SASO', app:'Living Room' },
+    'miro-pro':      { model:'Miro Pro', filter:'HEPA H14', cadr:'800 m³/h', coverage:'≤120 m²', noise:'≤50 dB', power:'100W', certs:'CE,RoHS,SASO', app:'Commercial/Office' },
+    'scuti':         { model:'Scuti', filter:'HEPA', cadr:'200 m³/h', coverage:'≤25 m²', noise:'≤28 dB', power:'35W', certs:'CE,RoHS', app:'Bedroom' },
+    'zoe':           { model:'ZOE', filter:'HEPA + Carbon', cadr:'280 m³/h', coverage:'≤38 m²', noise:'≤33 dB', power:'42W', certs:'CE,RoHS', app:'Bedroom/Living' },
+    'zoe-plus':      { model:'Zoe Plus', filter:'HEPA', cadr:'350 m³/h', coverage:'≤48 m²', noise:'≤35 dB', power:'48W', certs:'CE,RoHS', app:'Living Room' },
+    'zoro':          { model:'Zoro', filter:'HEPA', cadr:'450 m³/h', coverage:'≤60 m²', noise:'≤38 dB', power:'40W', certs:'CE,RoHS,SASO,ERP', app:'Living Room' },
+    'arion':         { model:'Arion', filter:'Washable + Carbon', cadr:'30 L/day', coverage:'≤60 m²', noise:'≤40 dB', power:'350W', certs:'CE,RoHS,SASO', app:'Basement/Large Room' },
+    'bibra':         { model:'Bibra', filter:'Washable', cadr:'12 L/day', coverage:'≤20 m²', noise:'≤35 dB', power:'180W', certs:'CE,RoHS', app:'Bedroom/Closet' },
+    'macro':         { model:'Macro', filter:'Washable + Carbon', cadr:'50 L/day', coverage:'≤100 m²', noise:'≤48 dB', power:'550W', certs:'CE,RoHS,SASO', app:'Warehouse/Industrial' },
+    'macro-duo':     { model:'Macro Duo', filter:'Dual Washable + Carbon', cadr:'80 L/day', coverage:'≤160 m²', noise:'≤52 dB', power:'800W', certs:'CE,RoHS,SASO', app:'Large Warehouse' },
+    'q1':            { model:'Q1', filter:'Washable', cadr:'10 L/day', coverage:'≤15 m²', noise:'≤33 dB', power:'150W', certs:'CE,RoHS', app:'Bathroom/Closet' },
+    'q22':           { model:'Q22', filter:'Washable + Carbon', cadr:'22 L/day', coverage:'≤40 m²', noise:'≤38 dB', power:'280W', certs:'CE,RoHS,SASO', app:'Living Room/Office' },
+    'q4':            { model:'Q4', filter:'Washable', cadr:'15 L/day', coverage:'≤25 m²', noise:'≤36 dB', power:'200W', certs:'CE,RoHS', app:'Bedroom/Living' },
+    'q5':            { model:'Q5', filter:'Washable', cadr:'5 L/day', coverage:'≤12 m²', noise:'≤30 dB', power:'120W', certs:'CE,RoHS,ERP', app:'Small Room/Closet' },
+    'q7':            { model:'Q7', filter:'Washable', cadr:'7 L/day', coverage:'≤15 m²', noise:'≤32 dB', power:'150W', certs:'CE,RoHS', app:'Small Room' },
+    'q9':            { model:'Q9', filter:'Washable', cadr:'9 L/day', coverage:'≤18 m²', noise:'≤33 dB', power:'180W', certs:'CE,RoHS', app:'Bedroom' },
+    't9-plus':       { model:'T9 Plus', filter:'HEPA + Washable', cadr:'20 L/day', coverage:'≤35 m²', noise:'≤38 dB', power:'260W', certs:'CE,RoHS,SASO', app:'Living Room' },
+    'top-x':         { model:'TOP-X', filter:'HEPA + Carbon + Washable', cadr:'35 L/day', coverage:'≤65 m²', noise:'≤42 dB', power:'400W', certs:'CE,RoHS,SASO,WiFi', app:'Large Room/Premium' },
+    'top500':        { model:'TOP500', filter:'Washable + Carbon', cadr:'50 L/day', coverage:'≤100 m²', noise:'≤50 dB', power:'600W', certs:'CE,RoHS,SASO', app:'Commercial/Industrial' },
+    'taurus':        { model:'Taurus', filter:'Desiccant + Carbon', cadr:'10 L/day', coverage:'≤20 m²', noise:'≤38 dB', power:'160W', certs:'CE,RoHS', app:'Cold/Garage/Basement' },
+    'vrigo':         { model:'Vrigo', filter:'Rotary Desiccant', cadr:'12 L/day', coverage:'≤25 m²', noise:'≤32 dB', power:'200W', certs:'CE,RoHS', app:'Bedroom/Nursery' },
+    'x3':            { model:'X3', filter:'Washable', cadr:'8 L/day', coverage:'≤14 m²', noise:'≤34 dB', power:'160W', certs:'CE,RoHS', app:'Small Room' },
+    'x4':            { model:'X4', filter:'Washable', cadr:'4 L/day', coverage:'≤10 m²', noise:'≤30 dB', power:'100W', certs:'CE,RoHS', app:'Closet/Bathroom' },
+    'dh-img5':       { model:'DH-IMG5', filter:'Washable', cadr:'15 L/day', coverage:'≤28 m²', noise:'≤36 dB', power:'220W', certs:'CE,RoHS', app:'Home/Office' },
+    'ice-q4':        { model:'ICE Q4', filter:'-', cadr:'12 kg/day ice', coverage:'-', noise:'≤42 dB', power:'100W', certs:'CE,RoHS', app:'Home/Kitchen' },
+    'icy-3':         { model:'ICY 3', filter:'-', cadr:'8 kg/day ice', coverage:'-', noise:'≤40 dB', power:'85W', certs:'CE,RoHS', app:'Home/Kitchen' },
+    'kimi':          { model:'Kimi', filter:'-', cadr:'15 kg/day ice', coverage:'-', noise:'≤44 dB', power:'120W', certs:'CE,RoHS', app:'Kitchen/Bar' },
+    'r2':            { model:'R2', filter:'-', cadr:'25 kg/day ice', coverage:'-', noise:'≤48 dB', power:'180W', certs:'CE,RoHS', app:'Commercial/Bar' },
+    'cl-1':          { model:'CL-1', filter:'Honeycomb pad', cadr:'6L tank', coverage:'≤30 m²', noise:'≤52 dB', power:'65W', certs:'CE,RoHS', app:'Home/Office' },
+    'h3':            { model:'H3', filter:'-', cadr:'2000W heating', coverage:'≤25 m²', noise:'≤45 dB', power:'2000W', certs:'CE,RoHS,CCC', app:'Home/Office' },
+    'h3-pro':        { model:'H3 Pro', filter:'-', cadr:'2500W heating', coverage:'≤35 m²', noise:'≤48 dB', power:'2500W', certs:'CE,RoHS,CCC', app:'Home/Office' },
+    'lm1a':          { model:'LM1A', filter:'Washable', cadr:'4L tank', coverage:'≤30 m²', noise:'≤30 dB', power:'25W', certs:'CE,RoHS', app:'Bedroom/Nursery' },
+    'oran':          { model:'Oran', filter:'Honeycomb pad', cadr:'8L tank', coverage:'≤35 m²', noise:'≤50 dB', power:'75W', certs:'CE,RoHS', app:'Home/Garage'
+  }
+};
+
+  const sp = specsMap[prod.id] || { model:prod.name, filter:'Varies', cadr:'Varies', coverage:'Varies', noise:'Varies', power:'Varies', certs:'CE,RoHS,SASO', app:'Varies' };
+
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -382,30 +430,46 @@ function generateProductPage(prod) {
 <nav aria-label="Breadcrumb" style="margin-bottom:20px;font-size:.85em;color:#95a5a6">
 <a href="../../" style="color:#1a5276;text-decoration:none">Home</a> &raquo;
 <a href="../" style="color:#1a5276;text-decoration:none">Products</a> &raquo;
-<span>${prod.fullName}</span>
+<span style="color:#555">${prod.fullName}</span>
 </nav>
 
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start">
+<div class="prod-detail-header">
+<h1>${prod.fullName}</h1>
+<span style="display:inline-block;background:#e8f0fe;color:#1a5276;border-radius:12px;padding:4px 14px;font-size:.82em;margin-top:4px">${prod.catName}</span>
+</div>
+
+<div class="prod-detail-layout">
 
 <div class="img-wrap" style="background:linear-gradient(135deg,#f8fafc,#eef2f7);border-radius:12px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;padding:40px;border:1px solid #e8edf4">
 <img src="../../images/${prod.image}" alt="${prod.fullName}" style="max-width:80%;max-height:80%;object-fit:contain">
 </div>
 
 <div>
-<h1 style="font-size:1.8em;color:#0f2b4a;margin-bottom:8px">${prod.fullName}</h1>
-<span style="display:inline-block;background:#e8f0fe;color:#1a5276;border-radius:12px;padding:4px 14px;font-size:.82em">${prod.catName}</span>
-<p style="margin-top:16px;color:#555;font-size:.95em;line-height:1.7">${prod.desc}</p>
+<p class="prod-detail-desc">${prod.desc}</p>
 
-<div style="margin-top:20px">
-<h3 style="font-size:1em;color:#0f2b4a;margin-bottom:8px">Key Specifications</h3>
-<div style="display:flex;flex-wrap:wrap;gap:6px">
-${prod.specs.map(s => `<span style="background:#f0f5fa;border:1px solid #e0e6ef;border-radius:6px;padding:6px 12px;font-size:.82em;color:#555">${s}</span>`).join('\n')}
-</div>
+<h2 style="font-size:1.2em;color:#0f2b4a;margin:20px 0 10px">📋 Technical Specifications</h2>
+<table class="prod-specs-table" style="width:100%;border-collapse:collapse;margin-bottom:16px;background:#f8fafc;border-radius:8px;overflow:hidden">
+<tr style="border-bottom:1px solid #e8edf4"><td style="padding:8px 12px;font-weight:600;color:#1a3a5c;width:130px">Model</td><td style="padding:8px 12px">${sp.model}</td></tr>
+<tr style="border-bottom:1px solid #e8edf4"><td style="padding:8px 12px;font-weight:600;color:#1a3a5c">Filter Type</td><td style="padding:8px 12px">${sp.filter}</td></tr>
+<tr style="border-bottom:1px solid #e8edf4"><td style="padding:8px 12px;font-weight:600;color:#1a3a5c">${prod.cat === 'ap' ? 'CADR' : prod.cat === 'dh' || prod.cat === 'ice' ? 'Capacity' : 'Capacity'}</td><td style="padding:8px 12px">${sp.cadr}</td></tr>
+<tr style="border-bottom:1px solid #e8edf4"><td style="padding:8px 12px;font-weight:600;color:#1a3a5c">Coverage</td><td style="padding:8px 12px">${sp.coverage}</td></tr>
+<tr style="border-bottom:1px solid #e8edf4"><td style="padding:8px 12px;font-weight:600;color:#1a3a5c">Noise Level</td><td style="padding:8px 12px">${sp.noise}</td></tr>
+<tr style="border-bottom:1px solid #e8edf4"><td style="padding:8px 12px;font-weight:600;color:#1a3a5c">Power</td><td style="padding:8px 12px">${sp.power}</td></tr>
+<tr style="border-bottom:1px solid #e8edf4"><td style="padding:8px 12px;font-weight:600;color:#1a3a5c">Certifications</td><td style="padding:8px 12px">${sp.certs}</td></tr>
+<tr><td style="padding:8px 12px;font-weight:600;color:#1a3a5c">Application</td><td style="padding:8px 12px">${sp.app}</td></tr>
+</table>
+
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px">
+<span style="background:#e8f0fe;color:#1a5276;border:1px solid #c5d7e9;border-radius:12px;padding:4px 12px;font-size:.7em;font-weight:600">✅ CE</span>
+<span style="background:#e8f0fe;color:#1a5276;border:1px solid #c5d7e9;border-radius:12px;padding:4px 12px;font-size:.7em;font-weight:600">✅ RoHS</span>
+<span style="background:#e8f0fe;color:#1a5276;border:1px solid #c5d7e9;border-radius:12px;padding:4px 12px;font-size:.7em;font-weight:600">✅ SASO</span>
+<span style="background:#e8f0fe;color:#1a5276;border:1px solid #c5d7e9;border-radius:12px;padding:4px 12px;font-size:.7em;font-weight:600">✅ ISO 9001</span>
 </div>
 
-<div style="margin-top:24px;background:#f0f8ff;border-radius:10px;padding:20px;border:1px solid #d4e8f7">
+<div style="background:#f0f8ff;border-radius:10px;padding:20px;border:1px solid #d4e8f7;margin-top:16px">
 <h3 style="font-size:.95em;color:#0f2b4a;margin-bottom:4px">✅ OEM / ODM Available</h3>
-<p style="font-size:.82em;color:#555">This product is available for full customization under your brand. Custom housing, logo, packaging, and spec changes are welcome.</p>
+<p style="font-size:.82em;color:#555;margin-bottom:6px">This product is available for full customization under your brand. Custom housing, logo, packaging, and spec changes are welcome.</p>
+<p style="font-size:.78em;color:#888">MOQ: 200 pcs · Sample: 7-15 days · Production: 25-40 days</p>
 </div>
 
 <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
@@ -416,13 +480,22 @@ ${prod.specs.map(s => `<span style="background:#f0f5fa;border:1px solid #e0e6ef;
 </div>
 </div>
 
-<div style="margin-top:40px">
-<h2 style="font-size:1.3em;text-align:left;color:#0f2b4a;margin-bottom:14px">Why Choose This Product for Your Brand?</h2>
+<h2 style="font-size:1.2em;color:#0f2b4a;margin:40px 0 16px;text-align:center">🎯 Why OEM with Minsen Technology?</h2>
 <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px">
-<div class="card" style="text-align:left;padding:20px"><span class="ico" style="font-size:28px">🏭</span><h3 style="font-size:.92em">Factory Direct</h3><p style="font-size:.78em">Direct from our 8,000m² facility. No middlemen, factory pricing.</p></div>
-<div class="card" style="text-align:left;padding:20px"><span class="ico" style="font-size:28px">✅</span><h3 style="font-size:.92em">Certified Quality</h3><p style="font-size:.78em">CE, RoHS, SASO certified. In-house testing lab.</p></div>
-<div class="card" style="text-align:left;padding:20px"><span class="ico" style="font-size:28px">🎨</span><h3 style="font-size:.92em">Custom Branding</h3><p style="font-size:.78em">Full OEM/ODM — your logo, packaging, and specs.</p></div>
-<div class="card" style="text-align:left;padding:20px"><span class="ico" style="font-size:28px">🌍</span><h3 style="font-size:.92em">Global Shipping</h3><p style="font-size:.78em">FOB Shenzhen or CIF. Export to 20+ countries.</p></div>
+<div class="card" style="text-align:left;padding:20px"><span class="ico" style="font-size:28px">🏭</span><h3 style="font-size:.92em">8,000m² Factory</h3><p style="font-size:.78em">Production lines, injection molding, in-house testing lab — all under one roof in Zhongshan, Guangdong.</p></div>
+<div class="card" style="text-align:left;padding:20px"><span class="ico" style="font-size:28px">🔬</span><h3 style="font-size:.92em">12 R&D Engineers</h3><p style="font-size:.78em">Full in-house engineering team for CAD drawings, mold development, and custom electronics design.</p></div>
+<div class="card" style="text-align:left;padding:20px"><span class="ico" style="font-size:28px">✅</span><h3 style="font-size:.92em">8 Certifications</h3><p style="font-size:.78em">CE, RoHS, SASO, CCC, ERP, ISO 9001, SABER, UL compliant. We handle market-specific requirements.</p></div>
+<div class="card" style="text-align:left;padding:20px"><span class="ico" style="font-size:28px">🎨</span><h3 style="font-size:.92em">Full Customization</h3><p style="font-size:.78em">Custom housing, logo, packaging, filter specs, electronics, control panel — your brand, your way.</p></div>
+<div class="card" style="text-align:left;padding:20px"><span class="ico" style="font-size:28px">📦</span><h3 style="font-size:.92em">Flexible MOQ</h3><p style="font-size:.78em">Starting from 200 pcs for new OEM partners. Repeat orders as low as 50-100 units. We grow with you.</p></div>
+<div class="card" style="text-align:left;padding:20px"><span class="ico" style="font-size:28px">🌍</span><h3 style="font-size:.92em">20+ Export Countries</h3><p style="font-size:.78em">FOB Shenzhen or CIF your port. DDP available for select markets. 25-40 day lead time.</p></div>
+</div>
+
+<div style="margin-top:40px;background:linear-gradient(135deg,#f0f5fa,#e8f0fe);border-radius:12px;padding:30px;text-align:center">
+<h2 style="font-size:1.2em;color:#0f2b4a;margin-bottom:12px">💬 Ready to Start Your OEM Project?</h2>
+<p style="font-size:.9em;color:#555;max-width:500px;margin:0 auto 18px">Tell us about your target market, volume, and timeline. We'll provide a tailored quotation within 24 hours.</p>
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+<a href="../../#contact" class="quote-btn" style="display:inline-block;padding:12px 32px;margin:0;font-size:.95em">📩 Get Quote for ${prod.fullName}</a>
+<a href="https://wa.me/8618468080481?text=I%27m%20interested%20in%20${encodeURIComponent(prod.fullName)}" style="display:inline-block;padding:12px 32px;background:#25D366;color:#fff;border-radius:6px;text-decoration:none;font-weight:600;font-size:.9em">💬 WhatsApp Us</a>
 </div>
 </div>
 
