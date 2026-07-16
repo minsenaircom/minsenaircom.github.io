@@ -181,12 +181,11 @@ body::before{
 /* ── CATEGORY CARDS ── */
 .cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px}
 .cat-card{background:var(--card-bg);border:1px solid var(--border-subtle);
-  border-radius:12px;padding:28px 14px 20px;text-align:center;
-  transition:all .35s;cursor:pointer;display:flex;flex-direction:column;align-items:center}
-.cat-card:hover{transform:translateY(-6px);border-color:var(--orange);box-shadow:0 12px 36px rgba(0,0,0,.3)}
-.cat-card .icon{font-size:2.3em;margin-bottom:8px;line-height:1}
-.cat-card h3{font-size:.92em;font-weight:700;color:#fff;margin-bottom:2px}
-.cat-card .tagline{font-size:.74em;color:var(--orange);font-weight:600;margin-bottom:10px}
+  border-radius:12px;padding:24px 14px 18px;text-align:center;
+  transition:all .35s;cursor:pointer;display:flex;flex-direction:column;align-items:center;height:100%}
+.cat-card:hover{transform:translateY(-4px);border-color:var(--orange);border-width:1px;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.cat-card h3{font-size:1em;font-weight:700;color:#fff;margin-bottom:8px}
+.cat-card .tagline{font-size:.78em;color:var(--orange);font-weight:700;display:block;margin-bottom:14px}
 
 /* ── ADVANTAGES ── */
 .adv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px}
