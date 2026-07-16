@@ -8,7 +8,7 @@
 <meta name="description" content="Browse 41+ home appliance models across 7 product lines. All OEM/ODM customizable. Factory direct. CE/RoHS/EMC certified.">
 </head>
 <body>
-<div class="top-bar"><span>MINSEN HOME APPLIANCE FACTORY</span><span>7 PRODUCTION LINES</span><span>CE · RoHS · EMC CERTIFIED</span><span>FOB GUANGDONG PORT</span>FOB GUANGDONG PORT</span><a href="https://wa.me/8618468080481" target="_blank">💬 +86 184 6804 0481</a></div>
+<div class="top-bar"><span>MINSEN HOME APPLIANCE FACTORY</span><span>7 PRODUCTION LINES</span><span>CE · RoHS · EMC CERTIFIED</span><span>FOB GUANGDONG PORT</span><a href="https://wa.me/8618468080481" target="_blank">💬 +86 184 6804 0481</a></div>
 <header class="site-header">
 <div class="container header-inner">
   <a href="/" class="logo"><span class="brand">MINSEN<span>HOME</span></span><span class="tagline">Home Appliance Factory</span></a>
@@ -41,25 +41,25 @@
       <a data-cat="ac" onclick="setCategory('ac',this)">❄️ Air Conditioner (2)</a>
     <div class="prod-filters">
       <div class="filter-label">FILTER BY</div>
-      <select id="filterCapacity">
+      <select id="filterCapacity" onchange="filterProducts()">
         <option value="">Daily Capacity</option>
         <option value="low">≤ 10L/day</option>
         <option value="med">10-30L/day</option>
         <option value="high">30-50L/day</option>
         <option value="max">50L+/day</option>
       </select>
-      <select id="filterVoltage">
+      <select id="filterVoltage" onchange="filterProducts()">
         <option value="">Voltage</option>
         <option value="220">220-240V / 50Hz</option>
         <option value="110">110-120V / 60Hz</option>
       </select>
-      <select id="filterRefrigerant">
+      <select id="filterRefrigerant" onchange="filterProducts()">
         <option value="">Refrigerant</option>
         <option value="R290">R290 Eco-friendly</option>
         <option value="R410A">R410A</option>
         <option value="R134A">R134A</option>
       </select>
-      <select id="filterApplication">
+      <select id="filterApplication" onchange="filterProducts()">
         <option value="">Application</option>
         <option value="home">Home / Residential</option>
         <option value="commercial">Commercial</option>
@@ -349,6 +349,21 @@
 <script>
 function toggleMobileNav(){document.getElementById('navLinks').classList.toggle('open')}
 let currentCategory='all';
+
+function filterByFilters(){
+  var cap=document.getElementById("filterCapacity").value;
+  var vol=document.getElementById("filterVoltage").value;
+  var ref=document.getElementById("filterRefrigerant").value;
+  var app=document.getElementById("filterApplication").value;
+  var cards=document.querySelectorAll(".prod-card");
+  cards.forEach(function(c){var s=true;
+    var specs=c.querySelector(".specs");
+    if(cap&&specs&&!specs.textContent.includes(cap))s=false;
+    if(ref&&specs&&!specs.textContent.includes(ref))s=false;
+    c.dataset.filtered=s?"":"none";
+  });
+}
+
 function setCategory(cat,el){
   currentCategory=cat;
   document.querySelectorAll('.prod-sidebar a').forEach(a=>a.classList.remove('active'));
