@@ -78,6 +78,14 @@
   ]
 }
 </script>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MEASUREMENT_ID"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag("js", new Date());
+gtag("config", "G-MEASUREMENT_ID");
+</script>
 </head>
 <body>
 
@@ -398,11 +406,20 @@ document.addEventListener('click',function(e){var p=document.getElementById('inq
 function submitInquiry(e){
   e.preventDefault();var form=document.getElementById('inquiryForm');var data=new FormData(form);
   fetch('https://formspree.io/f/xvgonayp',{method:'POST',body:data,headers:{'Accept':'application/json'}})
-  .then(function(r){if(r.ok){document.querySelector('.inquiry-form').style.display='none';document.querySelector('.popup-success').style.display='block';setTimeout(closeInquiry,3000)}})
-  .catch(function(){window.location.href='mailto:info@minsenair.com?subject='+encodeURIComponent('Inquiry: '+data.get('product'))+'&body='+encodeURIComponent('Product: '+data.get('product')+'\nQuantity: '+data.get('quantity')+'\nMarket: '+data.get('market')+'\nRequirements: '+data.get('requirements')+'\nEmail: '+data.get('email')+'\nWhatsApp: '+data.get('whatsapp'));document.querySelector('.inquiry-form').style.display='none';document.querySelector('.popup-success').style.display='block';setTimeout(closeInquiry,3000)});
+  .then(function(r){if(r.ok){if(typeof gtag==='function'){gtag('event','generate_lead',{value:1,currency:'USD',page_title:document.title})}document.querySelector('.inquiry-form').style.display='none';document.querySelector('.popup-success').style.display='block';setTimeout(closeInquiry,3000)}})
+  .catch(function(){if(typeof gtag==='function'){gtag('event','generate_lead',{value:1,currency:'USD',method:'email_fallback',page_title:document.title})}window.location.href='mailto:info@minsenair.com?subject='+encodeURIComponent('Inquiry: '+data.get('product'))+'&body='+encodeURIComponent('Product: '+data.get('product')+'\nQuantity: '+data.get('quantity')+'\nMarket: '+data.get('market')+'\nRequirements: '+data.get('requirements')+'\nEmail: '+data.get('email')+'\nWhatsApp: '+data.get('whatsapp'));document.querySelector('.inquiry-form').style.display='none';document.querySelector('.popup-success').style.display='block';setTimeout(closeInquiry,3000)});
   return false;
 }
 window.addEventListener('scroll',function(){var bt=document.getElementById('backTop');if(bt)bt.classList.toggle('show',window.scrollY>400)});
+</script>
+
+<script>
+document.addEventListener('click',function(e){
+  var t=e.target.closest('a');
+  if(t&&t.href&&t.href.includes('wa.me')&&typeof gtag==='function'){
+    gtag('event','conversion',{send_to:'G-MEASUREMENT_ID',event_category:'outbound',event_label:'whatsapp_click',value:1});
+  }
+});
 </script>
 </body>
 </html>

@@ -16,6 +16,14 @@
 <!-- JSON-LD -->
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Minsen Home Appliance Factory","alternateName":"广东民森科技有限公司","url":"https://minsenair.com","logo":"https://minsenair.com/favicon.svg","address":{"@type":"PostalAddress","addressLocality":"Zhongshan","addressRegion":"Guangdong","addressCountry":"CN"},"contactPoint":{"@type":"ContactPoint","telephone":"+86-184-6804-0481","email":"info@minsenair.com","contactType":"sales"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://minsenair.com/"},{"@type":"ListItem","position":2,"name":"Contact","item":"https://minsenair.com/contact.html"}]}</script>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MEASUREMENT_ID"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag("js", new Date());
+gtag("config", "G-MEASUREMENT_ID");
+</script>
 </head>
 <body>
 <div class="top-bar"><span>MINSEN HOME APPLIANCE FACTORY</span><span>7 PRODUCTION LINES</span><span>CE · RoHS · EMC CERTIFIED</span><span>FOB GUANGDONG PORT</span><a href="https://wa.me/8618468080481" target="_blank">💬 +86 184 6804 0481</a></div>
@@ -92,6 +100,15 @@
 <script>
 function toggleMobileNav(){document.getElementById('navLinks').classList.toggle('open')}
 window.addEventListener('scroll',function(){var bt=document.getElementById('backTop');if(bt)bt.classList.toggle('show',window.scrollY>400)});
+</script>
+
+<script>
+document.addEventListener('click',function(e){
+  var t=e.target.closest('a');
+  if(t&&t.href&&t.href.includes('wa.me')&&typeof gtag==='function'){
+    gtag('event','conversion',{send_to:'G-MEASUREMENT_ID',event_category:'outbound',event_label:'whatsapp_click',value:1});
+  }
+});
 </script>
 </body>
 </html>
