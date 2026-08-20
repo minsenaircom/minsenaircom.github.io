@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MINSEN TECHNOLOGY — Product Catalog 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #1a202c; background: #f0f2f5; }
+
+/* Cover */
+.cover { background: linear-gradient(135deg, #0f1b2d 0%, #1a365d 50%, #2b6cb0 100%); color: #fff; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 60px 40px; position: relative; overflow: hidden; }
+.cover::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.03) 0%, transparent 60%); }
+.cover-badge { font-size: 14px; letter-spacing: 6px; text-transform: uppercase; opacity: 0.6; margin-bottom: 20px; }
+.cover h1 { font-size: 64px; font-weight: 800; letter-spacing: -2px; margin-bottom: 8px; }
+.cover h2 { font-size: 24px; font-weight: 300; opacity: 0.8; margin-bottom: 30px; }
+.cover .tagline { font-size: 16px; opacity: 0.6; letter-spacing: 2px; }
+.cover .certs { margin-top: 30px; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.cover .certs span { border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 6px 16px; font-size: 12px; }
+.cover .footer-info { position: absolute; bottom: 40px; font-size: 13px; opacity: 0.5; }
+
+/* Page */
+.page { max-width: 1200px; margin: 0 auto; padding: 0; }
+
+/* Section */
+.section { padding: 60px 40px; }
+.section-title { font-size: 28px; font-weight: 700; color: #1a365d; margin-bottom: 8px; }
+.section-subtitle { font-size: 14px; color: #718096; margin-bottom: 40px; }
+
+/* Category Header */
+.cat-header { background: #fff; padding: 30px 40px; border-radius: 16px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.cat-header h2 { font-size: 22px; color: #1a365d; }
+.cat-header p { font-size: 14px; color: #718096; margin-top: 4px; }
+
+/* Product Grid */
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; margin-bottom: 40px; }
+.product-card { background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; }
+.product-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+.product-img { width: 100%; height: 200px; object-fit: contain; background: #f7fafc; padding: 16px; }
+.product-info { padding: 16px 16px 20px; }
+.product-name { font-size: 15px; font-weight: 600; color: #1a365d; }
+.product-spec { font-size: 12px; color: #718096; margin-top: 4px; line-height: 1.5; }
+.product-badge { display: inline-block; background: #ebf8ff; color: #2b6cb0; font-size: 11px; padding: 2px 8px; border-radius: 12px; margin-top: 8px; font-weight: 500; }
+
+/* Company Section */
+.company-section { background: #fff; border-radius: 16px; padding: 40px; margin: 0 40px 40px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.company-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px; }
+.company-item { text-align: center; padding: 20px; background: #f7fafc; border-radius: 12px; }
+.company-item .icon { font-size: 32px; margin-bottom: 8px; }
+.company-item h4 { font-size: 14px; color: #1a365d; margin-bottom: 4px; }
+.company-item p { font-size: 13px; color: #718096; }
+
+/* Contact */
+.contact-section { background: #1a365d; color: #fff; padding: 40px; text-align: center; }
+.contact-section h3 { font-size: 20px; margin-bottom: 16px; }
+.contact-section p { font-size: 14px; opacity: 0.8; line-height: 1.8; }
+.contact-section a { color: #90cdf4; text-decoration: none; }
+
+@page { margin: 0; }
+@media print {
+  body { background: #fff; }
+  .cover { min-height: 100vh; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .company-item { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-badge">2026 Edition</div>
+  <h1>MINSEN</h1>
+  <h2>TECHNOLOGY</h2>
+  <div class="tagline">Air Purifiers &bull; Dehumidifiers &bull; Ice Makers &bull; OEM/ODM</div>
+  <div class="certs">
+    <span>ISO 14001</span><span>EMC (SGS)</span><span>Safety Test</span><span>RoHS</span>
+  </div>
+  <div class="footer-info">Minsen Information Technology Industrial Park &middot; Sanjiao, Zhongshan, Guangdong, China</div>
+</div>
+
+<!-- PAGE 1 -->
+<div class="page" style="background:#fff; padding:40px;">
+
+  <div class="section" style="padding-top:0;">
+    <h2 class="section-title">🌬️ Air Purifiers</h2>
+    <p class="section-subtitle">HEPA filtration solutions for every space — from desktop to commercial</p>
+    <div class="product-grid">
+      <div class="product-card"><img class="product-img" src="product_images/ap_Colin_Pro.jpg" alt="Colin Pro"><div class="product-info"><div class="product-name">Colin Pro</div><div class="product-spec">HEPA H13 · CADR 300 · ≤35dB<br>Room up to 40m²</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/ap_FILLO.jpg" alt="FILLO"><div class="product-info"><div class="product-name">FILLO</div><div class="product-spec">HEPA H13 · CADR 200 · ≤30dB<br>Desktop · 30W</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/ap_HALO.jpg" alt="HALO"><div class="product-info"><div class="product-name">HALO</div><div class="product-spec">360° Intake · CADR 350<br>HEPA + Carbon · Tower</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/ap_Jupiter.jpg" alt="Jupiter"><div class="product-info"><div class="product-name">Jupiter</div><div class="product-spec">HEPA H13 · CADR 600<br>WiFi/App · Large Room</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/ap_Jupiter_Plus.jpg" alt="Jupiter Plus"><div class="product-info"><div class="product-name">Jupiter Plus</div><div class="product-spec">Dual HEPA + Carbon<br>CADR 700 · Premium</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/ap_Kaka.jpg" alt="Kaka"><div class="product-info"><div class="product-name">Kaka</div><div class="product-spec">Mini · USB-C Powered<br>≤25dB · HEPA · Desktop</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/ap_Kaka_Wood_Grain_Edition.jpg" alt="Kaka Wood Grain"><div class="product-info"><div class="product-name">Kaka Wood Grain</div><div class="product-spec">Wood Grain Finish<br>HEPA · Home Decor</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/ap_Mage.jpg" alt="Mage"><div class="product-info"><div class="product-name">Mage</div><div class="product-spec">Slim Tower · HEPA<br>Small Footprint</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/ap_Mars.jpg" alt="Mars"><div class="product-info"><div class="product-name">Mars</div><div class="product-spec">Smart Sensor · Auto Mode<br>CADR 400 · HEPA</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/ap_Miro_PRO.jpg" alt="Miro Pro"><div class="product-info"><div class="product-name">Miro Pro</div><div class="product-spec">Commercial Grade · HEPA H14<br>High CADR</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/ap_Scuti.jpg" alt="Scuti"><div class="product-info"><div class="product-name">Scuti</div><div class="product-spec">≤28dB Ultra Quiet<br>Bedroom · Sleep Mode</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/ap_ZOE.jpg" alt="ZOE"><div class="product-info"><div class="product-name">ZOE</div><div class="product-spec">Cylindrical · HEPA + Carbon<br>Compact · Medium Room</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/ap_Zoe_Plus.jpg" alt="Zoe Plus"><div class="product-info"><div class="product-name">Zoe Plus</div><div class="product-spec">Enhanced · Larger CADR<br>HEPA · Cylindrical</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/ap_Zoro.jpg" alt="Zoro"><div class="product-info"><div class="product-name">Zoro</div><div class="product-spec">Energy Saving · CADR 450<br>Quiet Fan · Eco</div><div class="product-badge">OEM/ODM</div></div></div>
+    </div>
+  </div>
+
+  <div class="section" style="page-break-before:always;">
+    <h2 class="section-title">💧 Dehumidifiers</h2>
+    <p class="section-subtitle">From compact home units to industrial-grade solutions</p>
+    <div class="product-grid">
+      <div class="product-card"><img class="product-img" src="product_images/dh_Arion.jpg" alt="Arion"><div class="product-info"><div class="product-name">Arion</div><div class="product-spec">Compressor · 18L/day<br>≤40dB · Auto Defrost</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/dh_Bibra.jpg" alt="Bibra"><div class="product-info"><div class="product-name">Bibra</div><div class="product-spec">Compressor · 25L/day<br>2L Tank · Portable</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/dh_Macro.jpg" alt="Macro"><div class="product-info"><div class="product-name">Macro</div><div class="product-spec">Semiconductor · 50L/day<br>Continuous Drain</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/dh_Macro_duo.jpg" alt="Macro Duo"><div class="product-info"><div class="product-name">Macro Duo</div><div class="product-spec">Dual Fan · 80L/day<br>Industrial · Max Capacity</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/dh_Q1.jpg" alt="Q1"><div class="product-info"><div class="product-name">Q1</div><div class="product-spec">Semiconductor · 10L/day<br>1.5L Tank · Auto Off</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/dh_Q22.jpg" alt="Q22"><div class="product-info"><div class="product-name">Q22</div><div class="product-spec">Smart · 22L/day<br>WiFi · Auto Defrost</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/dh_Q4.jpg" alt="Q4"><div class="product-info"><div class="product-name">Q4</div><div class="product-spec">Portable · 15L/day<br>4L Tank · Low Noise</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/dh_Q5.jpg" alt="Q5"><div class="product-info"><div class="product-name">Q5</div><div class="product-spec">Energy Star · 5L/day<br>1.8L Tank · ECO</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/dh_Q7.jpg" alt="Q7"><div class="product-info"><div class="product-name">Q7</div><div class="product-spec">7L/day · Auto Defrost<br>2.5L Tank · Cool Climate</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/dh_Q9.jpg" alt="Q9"><div class="product-info"><div class="product-name">Q9</div><div class="product-spec">9L/day · Washable Filter<br>3L Tank · Low Maintenance</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/dh_T9_Plus.jpg" alt="T9 Plus"><div class="product-info"><div class="product-name">T9 Plus</div><div class="product-spec">Tower · 20L/day<br>HEPA Filter · Space Saving</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/dh_TOP-X.jpg" alt="TOP-X"><div class="product-info"><div class="product-name">TOP-X</div><div class="product-spec">Premium · 35L/day<br>WiFi · Digital Display</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/dh_TOP500.jpg" alt="TOP500"><div class="product-info"><div class="product-name">TOP500</div><div class="product-spec">Commercial · 50L/day<br>Continuous Drain · Heavy Duty</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/dh_Taurus.jpg" alt="Taurus"><div class="product-info"><div class="product-name">Taurus</div><div class="product-spec">Compressor · 20-35L/day<br>45dB · WiFi Option</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/dh_Vrigo.jpg" alt="Vrigo"><div class="product-info"><div class="product-name">Vrigo</div><div class="product-spec">Rotary Desiccant · 12L/day<br>Ultra Quiet · Bedroom Safe</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/dh_X3.jpg" alt="X3"><div class="product-info"><div class="product-name">X3</div><div class="product-spec">Rotary · 8L/day<br>Portable · 3L Tank</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/dh_X4.jpg" alt="X4"><div class="product-info"><div class="product-name">X4</div><div class="product-spec">Ultra Compact · 4L/day<br>1.5L Tank</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/dh_img_5.jpg" alt="DH-IMG5"><div class="product-info"><div class="product-name">DH-IMG5</div><div class="product-spec">Multi-Purpose · 15L/day<br>4L Tank · Versatile</div><div class="product-badge">OEM/ODM</div></div></div>
+    </div>
+  </div>
+
+  <div class="section" style="page-break-before:always;">
+    <h2 class="section-title">🧊 Ice Makers</h2>
+    <p class="section-subtitle">Bullet ice makers for home, office & commercial use</p>
+    <div class="product-grid" style="grid-template-columns:repeat(auto-fill, minmax(250px, 1fr));">
+      <div class="product-card"><img class="product-img" src="product_images/ice_ICE_Q4.jpg" alt="ICE Q4"><div class="product-info"><div class="product-name">ICE Q4</div><div class="product-spec">12kg/day · Countertop<br>Bullet Ice · 8 Min Fast</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/ice_ICY_3.jpg" alt="ICY 3"><div class="product-info"><div class="product-name">ICY 3</div><div class="product-spec">8kg/day · Compact<br>Bullet Ice · Transparent Lid</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/ice_Kimi.jpg" alt="Kimi"><div class="product-info"><div class="product-name">Kimi</div><div class="product-spec">15kg/day · Portable<br>Self-Cleaning · Digital</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/ice_R2.jpg" alt="R2"><div class="product-info"><div class="product-name">R2</div><div class="product-spec">25kg/day · Commercial<br>Stainless Steel · High Capacity</div><div class="product-badge">OEM/ODM</div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">🔥 Other Products</h2>
+    <p class="section-subtitle">Air coolers, heaters, humidifiers & more</p>
+    <div class="product-grid" style="grid-template-columns:repeat(auto-fill, minmax(250px, 1fr));">
+      <div class="product-card"><img class="product-img" src="product_images/oth_CL_1.jpg" alt="CL-1"><div class="product-info"><div class="product-name">CL-1 Air Cooler</div><div class="product-spec">Evaporative · 6L Tank<br>Low Power · Eco</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/oth_H3.jpg" alt="H3"><div class="product-info"><div class="product-name">H3 Heater</div><div class="product-spec">PTC Ceramic · 2000W<br>Tower · Safety Features</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/oth_H3_PRO.jpg" alt="H3 Pro"><div class="product-info"><div class="product-name">H3 Pro Heater</div><div class="product-spec">2500W · Remote Control<br>Thermostat · Oscillation</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/oth_LM1A.jpg" alt="LM1A"><div class="product-info"><div class="product-name">LM1A Humidifier</div><div class="product-spec">Ultrasonic · 4L Tank<br>Auto Shut-Off · Quiet</div><div class="product-badge">OEM/ODM</div></div></div>
+      <div class="product-card"><img class="product-img" src="product_images/oth_Oran.jpg" alt="Oran"><div class="product-info"><div class="product-name">Oran Air Cooler</div><div class="product-spec">2-in-1 Cooler + Fan<br>8L Tank · Portable</div><div class="product-badge">OEM/ODM</div></div></div>
+    </div>
+  </div>
+
+  <!-- WHY PARTNER -->
+  <div class="company-section">
+    <h2 style="font-size:22px; color:#1a365d; text-align:center;">Why Partner with Minsen?</h2>
+    <div class="company-grid">
+      <div class="company-item"><div class="icon">📍</div><h4>Location</h4><p>Zhongshan, Guangdong<br>China's appliance hub</p></div>
+      <div class="company-item"><div class="icon">🏭</div><h4>Experience</h4><p>10+ Years<br>OEM/ODM Manufacturing</p></div>
+      <div class="company-item"><div class="icon">📦</div><h4>Product Range</h4><p>50+ Models<br>4 Product Categories</p></div>
+      <div class="company-item"><div class="icon">✅</div><h4>Certifications</h4><p>ISO 14001 · EMC (SGS)<br>Safety Test Report · RoHS</p></div>
+      <div class="company-item"><div class="icon">🎨</div><h4>OEM/ODM</h4><p>Custom Design<br>Branding & Packaging</p></div>
+      <div class="company-item"><div class="icon">📏</div><h4>Flexible MOQ</h4><p>Starting from 200 pcs<br>Scales with your order</p></div>
+      <div class="company-item"><div class="icon">🌍</div><h4>Global Export</h4><p>Europe · Middle East<br>SEA · Americas</p></div>
+      <div class="company-item"><div class="icon">🔬</div><h4>R&D Team</h4><p>12 Engineers<br>In-House Testing Lab</p></div>
+      <div class="company-item"><div class="icon">💎</div><h4>8,000m² Factory</h4><p>Full Production Line<br>Injection Molding On-Site</p></div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact-section" style="border-radius:16px; margin:0 40px;">
+    <h3>Let's Build Your Brand Together</h3>
+    <p>
+      📧 <a href="mailto:lulong783@gmail.com">lulong783@gmail.com</a> &nbsp;|&nbsp;
+      📱 <a href="https://wa.me/8618468080481">+86 184 6804 0481</a> &nbsp;|&nbsp;
+      🌐 <a href="https://minsenair.com">minsenair.com</a>
+    </p>
+    <p style="margin-top:12px; opacity:0.6; font-size:12px;">
+      Minsen Information Technology Industrial Park &middot; Sanjiao, Zhongshan, Guangdong, China
+    </p>
+    <p style="margin-top:20px; opacity:0.4; font-size:11px;">
+      © 2026 Minsen Technology. All rights reserved.
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
