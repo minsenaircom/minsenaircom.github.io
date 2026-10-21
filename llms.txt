@@ -1,6 +1,8 @@
-# Minsen Technology — Dehumidifier & Air Purifier OEM Manufacturer
+# Minsen Home Appliance Factory — Dehumidifier & Air Purifier OEM/ODM Manufacturer
 
-> Minsen Home Appliance Factory (Guangdong Minsen Technology Co., Ltd.) is an 8,000m² OEM/ODM manufacturer in Zhongshan, Guangdong, China. We design and produce dehumidifiers (20L–100L/day compressor, desiccant, commercial), air purifiers (HEPA H13/H14, CADR 200–700 m³/h), ice makers, fresh air ventilators, humidifiers, heaters, and air disinfection units. Certified CE, EMC (SGS), RoHS, ISO 14001. Founded 2015, exports to 20+ countries.
+> Minsen Home Appliance Factory is an OEM/ODM home-environment appliance manufacturer in Zhongshan, Guangdong, China. The company supports dehumidifier, air purifier, ice maker, fresh-air ventilator and related product development. Certification requirements are reviewed for the exact model, configuration and destination market; applicable documentation is confirmed during project discussion.
+
+Last updated: 2026-10-21.
 
 ## Company & Contact
 
@@ -9,7 +11,7 @@
 - [Contact](https://minsenair.com/contact.html): Email info@minsenair.com, WhatsApp +86 18468040481
 - [Manufacturing](https://minsenair.com/manufacturing.html): Factory capabilities, QC, R&D
 - [Distributor Program](https://minsenair.com/distributor.html): Become a Minsen distributor
-- [Certifications & Test Reports](https://minsenair.com/test-reports.html): ISO 14001, EMC (SGS), safety test reports, RoHS (Bureau Veritas)
+- [Compliance Documentation](https://minsenair.com/test-reports.html): How certification scope and available documentation are confirmed by model and target market
 
 ## Product Lines
 
@@ -25,19 +27,26 @@
 
 ## Featured Products
 
-- [Arion Compressor Dehumidifier](https://minsenair.com/products/arion/): 30L/day, ≤40dB quiet, auto defrost — bestseller
-- [TOP500 Commercial Dehumidifier](https://minsenair.com/products/top500/): Heavy-duty commercial dehumidification
-- [BKJ-350 Smart Air Purifier](https://minsenair.com/products/bkj-350/): CADR 350 m³/h, covers 42m², dust sensor
-- [Y-2500 Large Space Purifier](https://minsenair.com/products/y-2500/): Large-area purification
-- [R2 Commercial Ice Maker](https://minsenair.com/products/r2/): 25kg/day, stainless steel
-- [T-1400 6-Layer Purification](https://minsenair.com/products/t-1400/): Progressive 6-layer purification & disinfection
+- [Q22 Smart Dehumidifier](https://minsenair.com/products/q22/): 22L/day residential platform for OEM/ODM programs
+- [TOP-X Premium Dehumidifier](https://minsenair.com/products/top-x/): 35L/day higher-tier residential platform
+- [MACRO Commercial Dehumidifier](https://minsenair.com/products/macro/): 50L/day commercial and industrial platform
+- [Colin Pro Air Purifier](https://minsenair.com/products/colin-pro/): HEPA H13, CADR 300 m³/h
+- [Jupiter Smart Air Purifier](https://minsenair.com/products/jupiter/): HEPA H13, CADR 600 m³/h
+- [M70 Commercial Air Purifier](https://minsenair.com/products/m70/): 3000m³/h large-space platform
+
+## Destination-Market Programs
+
+- [Middle East](https://minsenair.com/markets/middle-east/): Product planning for Saudi Arabia, the UAE and wider GCC markets
+- [South America](https://minsenair.com/markets/south-america/): OEM/ODM planning for Brazil and Spanish-speaking markets
+- [North America](https://minsenair.com/markets/north-america/): Electrical, performance and compliance review for US and Canadian projects
 
 ## OEM/ODM Services
 
 - Custom branding, housing color, control panel, and packaging
-- Flexible MOQ: from 500 units first order; repeat orders 50–100 units
-- Sample lead time 7–15 days; mass production 25–40 days
-- CE, RoHS, SASO, ERP, CCC, UL certifications available by target market
+- Project-based MOQ, sample and production planning
+- Voltage, plug, language and documentation requirements agreed by destination market
+- Certification requirements reviewed per model and market; no blanket certification claim across all products
+- Production is planned around approved project specifications rather than finished-goods inventory
 
 ## Blog & Resources
 
@@ -45,4 +54,4 @@
 
 ## Optional
 
-Minsen Technology is a factory-direct manufacturer — inquiries welcome at info@minsenair.com or WhatsApp +86 18468040481.
+Minsen Home Appliance Factory welcomes OEM/ODM inquiries at info@minsenair.com or WhatsApp +86 18468040481.
