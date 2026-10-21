@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="canonical" href="https://minsenair.com/products.html">
 <title>All Products — Dehumidifier, Air Purifier, Ice Maker | Minsen Factory</title>
-<meta name="description" content="Browse 130+ home appliance models across 9 product lines. All OEM/ODM customizable. Factory direct. CE/RoHS/EMC certified.">
+<meta name="description" content="Browse 130+ home appliance models across 9 product lines. All OEM/ODM customizable. Factory direct. OEM/ODM with target-market compliance support.">
 <!-- Open Graph -->
 <meta property="og:title" content="All Products — Minsen Home Appliance Factory">
 <meta property="og:description" content="130+ home appliance models — dehumidifiers, air purifiers, fresh air ventilators, ice makers, heaters, humidifiers & more. Factory direct OEM/ODM.">
@@ -22,7 +22,7 @@
   "alternateName": "广东民森科技有限公司",
   "url": "https://minsenair.com",
   "logo": "https://minsenair.com/favicon.svg",
-  "description": "Professional manufacturer of dehumidifiers, air purifiers, ice makers, space heaters, humidifiers, cooling fans, and air conditioners. CE/RoHS/EMC certified.",
+  "description": "Professional manufacturer of dehumidifiers, air purifiers, ice makers, space heaters, humidifiers, cooling fans, and air conditioners. OEM/ODM with target-market compliance support.",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Zhongshan",
@@ -88,7 +88,7 @@ gtag("config", "G-79Z2E0SNBX");
 </script>
 </head>
 <body>
-<div class="top-bar"><span>MINSEN HOME APPLIANCE FACTORY</span><span>7 PRODUCTION LINES</span><span>CE · RoHS · EMC CERTIFIED</span><span>FOB GUANGDONG PORT</span><a href="https://wa.me/8618468080481" target="_blank">💬 +86 184 6804 0481</a></div>
+<div class="top-bar"><span>MINSEN HOME APPLIANCE FACTORY</span><span>7 PRODUCTION LINES</span><span>OEM / ODM · COMPLIANCE SUPPORT</span><span>FOB GUANGDONG PORT</span><a href="https://wa.me/8618468080481" target="_blank">💬 +86 184 6804 0481</a></div>
 <header class="site-header">
 <div class="container header-inner">
   <a href="/" class="logo"><span class="brand">MINSEN<span>HOME</span></span><span class="tagline">Home Appliance Factory</span></a>
@@ -856,7 +856,7 @@ gtag("config", "G-79Z2E0SNBX");
       <li>📍 Guangdong, China</li><li>🚢 FOB Guangdong Port</li></ul><button class="btn-secondary" onclick="window.location.href='/contact.html'" style="margin-top:8px">SEND INQUIRY</button></div>
   </div>
   <div class="footer-bottom"><div class="footer-contact"><a href="https://wa.me/8618468080481" target="_blank">💬 WhatsApp</a><a href="mailto:info@minsenair.com">📧 Email</a></div>
-    <p>© 2026 Minsen Home Appliance Factory. All Rights Reserved.</p><p style="margin-top:4px">All products comply with EU CE, RoHS, EMC safety standards. FOB Guangdong Port.</p>
+    <p>© 2026 Minsen Home Appliance Factory. All Rights Reserved.</p><p style="margin-top:4px">Certification scope varies by model and target market. FOB Guangdong Port.</p>
   </div>
 </div></footer>
 
@@ -874,6 +874,8 @@ gtag("config", "G-79Z2E0SNBX");
       <input type="hidden" name="product" id="inquiryProduct">
       <label for="inqQty">Est. Quantity (units)</label>
       <input type="text" id="inqQty" name="quantity" placeholder="e.g. 500-1000" required>
+      <label for="inqCert">Required Certification</label>
+      <select id="inqCert" name="certification"><option value="">Not sure yet</option><option>CE / EU compliance</option><option>RoHS / EMC documentation</option><option>SASO / SABER</option><option>UL / ETL</option><option>INMETRO / ANATEL</option><option>NOM</option><option>Other / multiple markets</option></select>
       <label for="inqMarket">Target Market</label>
       <select id="inqMarket" name="market" required><option value="">— Select —</option><option>Europe</option><option>Middle East</option><option>Southeast Asia</option><option>South America</option><option>North America</option><option>Africa</option><option>Oceania</option><option>Other</option></select>
       <label for="inqCustom">Customization Needs</label>
@@ -929,7 +931,7 @@ function submitInquiry(e){
   e.preventDefault();var form=document.getElementById('inquiryForm');var data=new FormData(form);
   fetch('https://formspree.io/f/xvgonayp',{method:'POST',body:data,headers:{'Accept':'application/json'}})
   .then(function(r){if(r.ok){if(typeof gtag==='function'){gtag('event','generate_lead',{value:1,currency:'USD',page_title:document.title})}document.querySelector('.inquiry-form').style.display='none';document.querySelector('.popup-success').style.display='block';setTimeout(closeInquiry,3000)}})
-  .catch(function(){if(typeof gtag==='function'){gtag('event','generate_lead',{value:1,currency:'USD',method:'email_fallback',page_title:document.title})}window.location.href='mailto:info@minsenair.com?subject='+encodeURIComponent('Inquiry: '+data.get('product'))+'&body='+encodeURIComponent('Product: '+data.get('product')+'\nQuantity: '+data.get('quantity')+'\nMarket: '+data.get('market')+'\nRequirements: '+data.get('requirements')+'\nEmail: '+data.get('email')+'\nWhatsApp: '+data.get('whatsapp'));document.querySelector('.inquiry-form').style.display='none';document.querySelector('.popup-success').style.display='block';setTimeout(closeInquiry,3000)});
+  .catch(function(){if(typeof gtag==='function'){gtag('event','generate_lead',{value:1,currency:'USD',method:'email_fallback',page_title:document.title})}window.location.href='mailto:info@minsenair.com?subject='+encodeURIComponent('Inquiry: '+data.get('product'))+'&body='+encodeURIComponent('Product: '+data.get('product')+'\nQuantity: '+data.get('quantity')+'\nMarket: '+data.get('market')+'\nCertification: '+data.get('certification')+'\nRequirements: '+data.get('requirements')+'\nEmail: '+data.get('email')+'\nWhatsApp: '+data.get('whatsapp'));document.querySelector('.inquiry-form').style.display='none';document.querySelector('.popup-success').style.display='block';setTimeout(closeInquiry,3000)});
   return false;
 }
 window.addEventListener('scroll',function(){var bt=document.getElementById('backTop');if(bt)bt.classList.toggle('show',window.scrollY>400)});
