@@ -414,6 +414,10 @@ body > section.section nav[aria-label="Breadcrumb"] span{color:var(--metal)!impo
 .product-review .prod-detail-layout .prod-detail-section,
 .product-review .prod-detail-layout > div > h2,
 .product-review .prod-detail-layout span:empty{display:none}
+.product-review.verified .prod-detail-desc{display:block}
+.product-review.verified .prod-specs-table{display:table}
+.product-review.verified .prod-detail-layout .prod-detail-section{display:block}
+.product-review.verified .prod-detail-layout > div > h2{display:block}
 
 /* Mobile text size boost */
 @media(max-width:1024px){
