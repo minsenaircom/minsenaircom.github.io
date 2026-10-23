@@ -272,8 +272,8 @@ body > section.section h2{color:#fff!important}
 .prod-detail-layout p{color:var(--text)}
 body > section.section nav[aria-label="Breadcrumb"] a{color:var(--orange-light)!important}
 body > section.section nav[aria-label="Breadcrumb"] span{color:var(--metal)!important}
-.prod-detail-layout .prod-specs-table{background:var(--card-bg)!important;border:1px solid var(--border-subtle)!important}
-.prod-detail-layout .prod-specs-table td{color:var(--text-light)!important}
+.prod-detail-layout .prod-specs-table{background:var(--card-bg)!important;border:1px solid var(--border-subtle)!important;table-layout:fixed}
+.prod-detail-layout .prod-specs-table td{color:var(--text-light)!important;overflow-wrap:anywhere;word-break:break-word}
 .prod-detail-layout .prod-specs-table td:first-child{color:var(--orange)!important}
 .prod-detail-images{background:var(--card-bg);border:1px solid var(--border-subtle);border-radius:12px;padding:24px}
 .prod-detail-info h1{font-size:1.8em;font-weight:800;color:#fff;margin-bottom:8px}
