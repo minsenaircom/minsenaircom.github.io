@@ -419,12 +419,36 @@ body > section.section nav[aria-label="Breadcrumb"] span{color:var(--metal)!impo
 .product-review.verified .prod-detail-layout .prod-detail-section{display:block}
 .product-review.verified .prod-detail-layout > div > h2{display:block}
 
+/* Long-form guide layout and readability */
+.guide-page{padding:48px 0 72px;min-height:70vh}
+.guide-page .container{max-width:1040px}
+.guide-breadcrumb{font-size:.84em;color:var(--metal);margin-bottom:20px}
+.guide-breadcrumb a{color:var(--orange);text-decoration:none}
+.guide-breadcrumb a:hover{text-decoration:underline}
+.guide-title{font-size:2.15em;line-height:1.2;color:#fff !important;margin:0 0 10px}
+.guide-meta{font-size:.85em;color:#9fb0c0 !important;margin-bottom:30px}
+.blog-article{max-width:920px;margin:0 auto;color:#d9e3ec !important}
+.blog-article > p,.blog-article > ul,.blog-article > ol{color:#d9e3ec !important}
+.blog-article > h2,.blog-article > h3{color:#fff !important}
+.blog-article > p > a,.blog-article > ul a,.blog-article > ol a{color:#f0bd74}
+.blog-article > div[style*="background:#eef6ff"],
+.blog-article > div[style*="background:#f8fafc"],
+.blog-article > div[style*="background:#f0f8ff"]{color:#153449 !important}
+.blog-article > div[style*="background:#eef6ff"] a,
+.blog-article > div[style*="background:#f8fafc"] a,
+.blog-article > div[style*="background:#f0f8ff"] a{color:#1a5276 !important}
+.blog-article > table{color:#153449 !important;border-radius:8px;overflow:hidden}
+.blog-article > table td{color:inherit}
+
 /* Mobile text size boost */
 @media(max-width:1024px){
   .prod-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:768px){
   body{font-size:15px}
+  .guide-page{padding:32px 0 52px}
+  .guide-title{font-size:1.7em}
+  .blog-article{font-size:.95em !important}
   .page-section .section-sub{font-size:.95em}
   .footer-col ul li a{font-size:.85em}
   .prod-card .info .highlight{font-size:.82em}
