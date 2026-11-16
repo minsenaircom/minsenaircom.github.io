@@ -440,9 +440,28 @@ body > section.section nav[aria-label="Breadcrumb"] span{color:var(--metal)!impo
 .blog-article > table{color:#153449 !important;border-radius:8px;overflow:hidden}
 .blog-article > table td{color:inherit}
 
+/* Saudi Arabia lead-generation landing page */
+.saudi-lead-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:36px;align-items:start}
+.lead-panel{padding:30px;border:1px solid var(--border-subtle);border-radius:14px;background:var(--card-bg)}
+.lead-panel h2{font-size:1.45em;margin-bottom:18px}
+.lead-form label{display:block;color:var(--text-light);font-size:.78em;font-weight:700;margin-bottom:12px}
+.lead-form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lead-form input,.lead-form select,.lead-form textarea{display:block;width:100%;margin-top:5px;padding:11px 13px;border:1px solid rgba(255,255,255,.13);border-radius:7px;background:rgba(255,255,255,.06);color:#fff;font:inherit}
+.lead-form select option{color:#111}
+.lead-form input:focus,.lead-form select:focus,.lead-form textarea:focus{outline:0;border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-glow)}
+.lead-form-status{font-size:.75em;color:var(--metal);margin-top:10px;text-align:center;min-height:2.7em}
+.lead-form-status a{color:var(--orange);font-weight:700}
+.saudi-product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:26px}
+.saudi-product-card{padding:20px;border:1px solid var(--border-subtle);border-radius:12px;background:var(--card-bg)}
+.saudi-product-card img{width:100%;aspect-ratio:1;object-fit:contain;background:#f5f7f9;border-radius:9px;margin-bottom:16px}
+.saudi-product-card h3{font-size:1.15em;color:#fff;margin-bottom:8px}
+.saudi-product-card p{font-size:.86em;color:var(--text);margin-bottom:14px}
+.saudi-product-card a{color:var(--orange);font-size:.84em;font-weight:700}
+
 /* Mobile text size boost */
 @media(max-width:1024px){
   .prod-grid{grid-template-columns:repeat(2,1fr)}
+  .saudi-lead-grid{grid-template-columns:1fr}
 }
 @media(max-width:768px){
   body{font-size:15px}
@@ -472,6 +491,9 @@ body > section.section nav[aria-label="Breadcrumb"] span{color:var(--metal)!impo
   .footer-grid{grid-template-columns:1fr 1fr;font-size:.95em}
   .adv-visual-grid{grid-template-columns:1fr}
   .market-hero{padding:64px 0 54px}.market-hero h1{font-size:1.9em}
+  .saudi-product-grid{grid-template-columns:1fr}
+  .lead-form-row{grid-template-columns:1fr;gap:0}
+  .lead-panel{padding:22px}
 }
 @media(max-width:480px){
   body{font-size:14px}
